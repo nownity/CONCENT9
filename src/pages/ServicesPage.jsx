@@ -8,6 +8,7 @@ const Container = styled.main`
   justify-content: center;
   flex-direction: column;
   background-color: #d1c0fa;
+  font-size: 2rem;
 `;
 
 const ServicesPage = () => {

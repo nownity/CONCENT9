@@ -8,6 +8,7 @@ const Container = styled.main`
   justify-content: center;
   flex-direction: column;
   background-color: #fac0c0;
+  font-size: 2rem;
 `;
 
 const AboutPage = () => {

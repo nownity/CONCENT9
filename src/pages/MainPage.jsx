@@ -9,6 +9,7 @@ const Container = styled.main`
   flex-direction: column;
   background-color: #353535;
   color: #cfe776;
+  font-size: 2rem;
 `;
 
 const MainPage = () => {

@@ -8,6 +8,7 @@ const Container = styled.main`
   justify-content: center;
   flex-direction: column;
   background-color: #d5fac0;
+  font-size: 2rem;
 `;
 
 const PortfolioPage = () => {

@@ -8,6 +8,7 @@ const Container = styled.main`
   justify-content: center;
   flex-direction: column;
   background-color: #c0faf2;
+  font-size: 2rem;
 `;
 
 const PricingPage = () => {
