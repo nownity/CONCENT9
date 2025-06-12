@@ -8,6 +8,7 @@ const Container = styled.main`
   justify-content: center;
   flex-direction: column;
   background-color: #fac0c0;
+  color: #353535;
   font-size: 2rem;
 `;
 
