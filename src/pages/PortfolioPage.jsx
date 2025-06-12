@@ -7,12 +7,11 @@ const Container = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #353535;
-  color: #cfe776;
+  background-color: #d5fac0;
 `;
 
-const MainPage = () => {
-  return <Container>CONCENT9</Container>;
+const PortfolioPage = () => {
+  return <Container>PortfolioPage</Container>;
 };
 
-export default MainPage;
+export default PortfolioPage;

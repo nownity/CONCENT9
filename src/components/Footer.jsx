@@ -2,17 +2,16 @@ import styled from "styled-components";
 
 const Container = styled.main`
   width: 100%;
-  height: 100vh;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #353535;
-  color: #cfe776;
+  background-color: #464646;
 `;
 
-const MainPage = () => {
-  return <Container>CONCENT9</Container>;
+const Footer = () => {
+  return <Container>Footer</Container>;
 };
 
-export default MainPage;
+export default Footer;
