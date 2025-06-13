@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import body01 from "../img/11.jpg";
-import body02 from "../img/2.jpg";
 
 const Container = styled.main`
   width: 100%;
