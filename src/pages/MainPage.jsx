@@ -116,25 +116,35 @@ const ImgBox = styled.div`
     width: 100%;
     justify-content: center;
   }
-  @media (max-width: 768px) {
-    width: 100%;
-    justify-content: center;
-  }
 `;
 
 const ImageWrap = styled.div`
   width: 70%;
   height: auto;
   aspect-ratio: 650 / 750;
-  background-image: ${({ imageurl }) => `url(${imageurl})`};
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @media (max-width: 1200px) {
     width: 70%;
   }
   @media (max-width: 768px) {
-    width: 80%;
+    width: 90%;
+  }
+`;
+
+const ImageWrap2 = styled.div`
+  width: 70%;
+  height: auto;
+  aspect-ratio: 650 / 750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
   }
 `;
 
@@ -216,14 +226,14 @@ const MainPage = () => {
           </ImageWrap>
         </ImgBox>
         <ImgBox {...fadeIn22}>
-          <ImageWrap>
+          <ImageWrap2>
             <StyledImg
               src={body02}
               alt="concent9 메인 이미지2"
               loading="eager"
               decoding="async"
             />
-          </ImageWrap>
+          </ImageWrap2>
         </ImgBox>
       </SecondSection>
       <ThridSection>
@@ -240,27 +250,27 @@ const MainPage = () => {
               </ImageWrap>
             </ImgBox>
             <ImgBox {...fadeIn3}>
-              <ImageWrap>
+              <ImageWrap2>
                 <StyledImg
                   src={body03}
                   alt="concent9 메인 이미지 3"
                   loading="eager"
                   decoding="async"
                 />
-              </ImageWrap>
+              </ImageWrap2>
             </ImgBox>
           </>
         ) : (
           <>
             <ImgBox {...fadeIn33}>
-              <ImageWrap>
+              <ImageWrap2>
                 <StyledImg
                   src={body03}
                   alt="concent9 메인 이미지 3"
                   loading="eager"
                   decoding="async"
                 />
-              </ImageWrap>
+              </ImageWrap2>
             </ImgBox>
             <ImgBox {...fadeIn3}>
               <ImageWrap>
@@ -287,14 +297,14 @@ const MainPage = () => {
           </ImageWrap>
         </ImgBox>
         <ImgBox {...fadeIn44}>
-          <ImageWrap>
+          <ImageWrap2>
             <StyledImg
               src={body06}
               alt="concent9 메인 이미지 6"
               loading="eager"
               decoding="async"
             />
-          </ImageWrap>
+          </ImageWrap2>
         </ImgBox>
       </ThridSection>
       <ContactBtnWrap>
