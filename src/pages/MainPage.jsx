@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import body01 from "../img/11.jpg";
+import body01 from "../img/1-1.png";
+import body02 from "../img/1-2.png";
+import body03 from "../img/2-1.png";
+import body04 from "../img/2-2.png";
+import body05 from "../img/3-1.png";
+import body06 from "../img/3-2.png";
+import { useEffect, useState } from "react";
 
 const Container = styled.main`
   width: 100%;
@@ -86,7 +92,7 @@ const ContactBtn = styled(Link)`
 `;
 
 const SecondSection = styled.div`
-  width: 100%;
+  width: 80%;
   height: auto;
   aspect-ratio: 1920 / 700;
   display: flex;
@@ -97,124 +103,71 @@ const SecondSection = styled.div`
     aspect-ratio: 1200 / 1500;
     flex-direction: column;
   }
-  @media (max-width: 768px) {
-    aspect-ratio: 768 / 800;
-    flex-direction: column;
-  }
 `;
 
-const SecondLeft = styled.div`
-  width: 38%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  @media (max-width: 1200px) {
-    width: 100%;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-    justify-content: center;
-  }
-`;
-
-const SecondRight = styled.div`
-  width: 47%;
+const ImgBox = styled.div`
+  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   @media (max-width: 1200px) {
-    width: 90%;
+    width: 100%;
+    justify-content: center;
   }
   @media (max-width: 768px) {
-    width: 90%;
+    width: 100%;
+    justify-content: center;
   }
 `;
+
 const ImageWrap = styled.div`
-  width: 60%;
+  width: 70%;
   height: auto;
-  aspect-ratio: 650 / 1200;
+  aspect-ratio: 650 / 750;
   background-image: ${({ imageurl }) => `url(${imageurl})`};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   @media (max-width: 1200px) {
-    width: 40%;
+    width: 70%;
   }
   @media (max-width: 768px) {
-    width: 60%;
-  }
-`;
-
-const SecondText = styled.div`
-  width: 100%;
-  font-size: 20px;
-  color: #cfe776;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  @media (max-width: 1200px) {
-    width: 90%;
-    margin-top: 50px;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const SecondText1 = styled.div`
-  width: 100%;
-  font-size: 20px;
-  margin-top: 40px;
-  color: #cfe776;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  @media (max-width: 1200px) {
-    width: 90%;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const SecondText2 = styled.div`
-  width: 100%;
-  font-size: 19px;
-  margin-top: 40px;
-  color: #cfe776;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  @media (max-width: 1200px) {
-    width: 90%;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    font-size: 12px;
+    width: 80%;
   }
 `;
 
 const ThridSection = styled.div`
-  width: 100%;
+  width: 80%;
   height: auto;
   aspect-ratio: 1920 / 700;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+  margin-top: 100px;
+  @media (max-width: 1200px) {
+    aspect-ratio: 1200 / 1500;
+    flex-direction: column;
+    margin-top: 0px;
+  }
   @media (max-width: 768px) {
-    aspect-ratio: 768 / 800;
     flex-direction: column;
   }
 `;
 
 const MainPage = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1200);
+    };
+    handleResize(); // 초기값 세팅
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Container>
       <HeroSection>
@@ -226,28 +179,45 @@ const MainPage = () => {
         </BtnWrap>
       </HeroSection>
       <SecondSection>
-        <SecondLeft>
+        <ImgBox>
           <ImageWrap imageurl={body01} />
-        </SecondLeft>
-        <SecondRight>
-          <SecondText>왜 콘센트9인가요?</SecondText>
-          <SecondText1>
-            브랜드는 누구나 만들 수 있지만, 지속하고 성장시키는 건 또 다른
-            일입니다.
-          </SecondText1>
-          <SecondText1 />
-          <SecondText2>
-            ✔ 실행 중심 브랜딩 — 그냥 예쁜 게 아니라 팔리는 브랜드
-          </SecondText2>
-          <SecondText2>
-            ✔ 실전 창업 경험 — 정부지원사업 · 펀딩 · 자사몰까지 경험한 실무팀
-          </SecondText2>
-          <SecondText2>
-            ✔ 운영형 템플릿 제공 — 실무에 바로 적용 가능한 실전형 자료
-          </SecondText2>
-        </SecondRight>
+        </ImgBox>
+        <ImgBox>
+          <ImageWrap imageurl={body02} />
+        </ImgBox>
       </SecondSection>
-      <ThridSection></ThridSection>
+      <ThridSection>
+        {isMobile ? (
+          <>
+            <ImgBox>
+              <ImageWrap imageurl={body04} />
+            </ImgBox>
+            <ImgBox>
+              <ImageWrap imageurl={body03} />
+            </ImgBox>
+          </>
+        ) : (
+          <>
+            <ImgBox>
+              <ImageWrap imageurl={body03} />
+            </ImgBox>
+            <ImgBox>
+              <ImageWrap imageurl={body04} />
+            </ImgBox>
+          </>
+        )}
+      </ThridSection>
+      <ThridSection>
+        <ImgBox>
+          <ImageWrap imageurl={body05} />
+        </ImgBox>
+        <ImgBox>
+          <ImageWrap imageurl={body06} />
+        </ImgBox>
+      </ThridSection>
+      <BtnWrap>
+        <ContactBtn to="/contact">상담하기</ContactBtn>
+      </BtnWrap>
     </Container>
   );
 };
