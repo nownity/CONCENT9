@@ -7,6 +7,7 @@ import body04 from "../img/2-2.png";
 import body05 from "../img/3-1.png";
 import body06 from "../img/3-2.png";
 import { useEffect, useState } from "react";
+import useScrollFadeIn from "../hooks/useScrollFadIn";
 
 const Container = styled.main`
   width: 100%;
@@ -163,6 +164,14 @@ const ThridSection = styled.div`
 `;
 
 const MainPage = () => {
+  const fadeInTitle = useScrollFadeIn("up", 0.7, 0);
+  const fadeIn2 = useScrollFadeIn("up", 0.7, 0);
+  const fadeIn22 = useScrollFadeIn("up", 0.7, 0.2);
+  const fadeIn3 = useScrollFadeIn("up", 0.7, 0);
+  const fadeIn33 = useScrollFadeIn("up", 0.7, 0.2);
+  const fadeIn4 = useScrollFadeIn("up", 0.7, 0.1);
+  const fadeIn44 = useScrollFadeIn("up", 0.7, 0.1);
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -177,63 +186,107 @@ const MainPage = () => {
   return (
     <Container>
       <HeroSection>
-        <Title>CONCENT9</Title>
-        <Subcopy>Thinking is good. Doing is better.</Subcopy>
-        <Maincopy>브랜드를 움직이게 만드는 에너지, CONCENT9</Maincopy>
+        <Title {...fadeInTitle}>CONCENT9</Title>
+        <Subcopy {...fadeInTitle}>Thinking is good. Doing is better.</Subcopy>
+        <Maincopy {...fadeInTitle}>
+          브랜드를 움직이게 만드는 에너지, CONCENT9
+        </Maincopy>
         <BtnWrap>
-          <ContactBtn to="/contact">상담하기</ContactBtn>
+          <ContactBtn to="/contact" {...fadeInTitle}>
+            상담하기
+          </ContactBtn>
         </BtnWrap>
       </HeroSection>
       <SecondSection>
-        <ImgBox>
+        <ImgBox {...fadeIn2}>
           <ImageWrap>
-            <StyledImg src={body01} loading="eager" />
+            <StyledImg
+              src={body01}
+              alt="concent9 메인 이미지 1"
+              loading="eager"
+              decoding="async"
+            />
           </ImageWrap>
         </ImgBox>
-        <ImgBox>
+        <ImgBox {...fadeIn22}>
           <ImageWrap>
-            <StyledImg src={body02} loading="eager" />
+            <StyledImg
+              src={body02}
+              alt="concent9 메인 이미지2"
+              loading="eager"
+              decoding="async"
+            />
           </ImageWrap>
         </ImgBox>
       </SecondSection>
       <ThridSection>
         {isMobile ? (
           <>
-            <ImgBox>
+            <ImgBox {...fadeIn33}>
               <ImageWrap>
-                <StyledImg src={body04} loading="eager" />
+                <StyledImg
+                  src={body04}
+                  alt="concent9 메인 이미지 4"
+                  loading="eager"
+                  decoding="async"
+                />
               </ImageWrap>
             </ImgBox>
-            <ImgBox>
+            <ImgBox {...fadeIn3}>
               <ImageWrap>
-                <StyledImg src={body03} loading="eager" />
+                <StyledImg
+                  src={body03}
+                  alt="concent9 메인 이미지 3"
+                  loading="eager"
+                  decoding="async"
+                />
               </ImageWrap>
             </ImgBox>
           </>
         ) : (
           <>
-            <ImgBox>
+            <ImgBox {...fadeIn33}>
               <ImageWrap>
-                <StyledImg src={body03} loading="eager" />
+                <StyledImg
+                  src={body03}
+                  alt="concent9 메인 이미지 3"
+                  loading="eager"
+                  decoding="async"
+                />
               </ImageWrap>
             </ImgBox>
-            <ImgBox>
+            <ImgBox {...fadeIn3}>
               <ImageWrap>
-                <StyledImg src={body04} loading="eager" />
+                <StyledImg
+                  src={body04}
+                  alt="concent9 메인 이미지 4"
+                  loading="eager"
+                  decoding="async"
+                />
               </ImageWrap>
             </ImgBox>
           </>
         )}
       </ThridSection>
       <ThridSection>
-        <ImgBox>
+        <ImgBox {...fadeIn4}>
           <ImageWrap>
-            <StyledImg src={body05} loading="eager" />
+            <StyledImg
+              src={body05}
+              alt="concent9 메인 이미지 5"
+              loading="eager"
+              decoding="async"
+            />
           </ImageWrap>
         </ImgBox>
-        <ImgBox>
+        <ImgBox {...fadeIn44}>
           <ImageWrap>
-            <StyledImg src={body06} loading="eager" />
+            <StyledImg
+              src={body06}
+              alt="concent9 메인 이미지 6"
+              loading="eager"
+              decoding="async"
+            />
           </ImageWrap>
         </ImgBox>
       </ThridSection>
