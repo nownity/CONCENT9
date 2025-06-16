@@ -23,7 +23,7 @@ const useScrollFadeIn = (direction = "up", duration = 0.7, delay = 0) => {
   const getTransform = () => {
     switch (direction) {
       case "up":
-        return "translate3d(0, 20px, 0)";
+        return "translate3d(0, 50px, 0)";
       case "down":
         return "translate3d(0, -20px, 0)";
       case "left":

@@ -162,15 +162,22 @@ const ThridSection = styled.div`
     flex-direction: column;
   }
 `;
+const ContactBtnWrap = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const MainPage = () => {
-  const fadeInTitle = useScrollFadeIn("up", 0.7, 0);
-  const fadeIn2 = useScrollFadeIn("up", 0.7, 0);
-  const fadeIn22 = useScrollFadeIn("up", 0.7, 0.2);
-  const fadeIn3 = useScrollFadeIn("up", 0.7, 0);
-  const fadeIn33 = useScrollFadeIn("up", 0.7, 0.2);
-  const fadeIn4 = useScrollFadeIn("up", 0.7, 0.1);
-  const fadeIn44 = useScrollFadeIn("up", 0.7, 0.1);
+  const fadeInTitle = useScrollFadeIn("up", 0.8, 0);
+  const fadeIn2 = useScrollFadeIn("up", 0.8, 0);
+  const fadeIn22 = useScrollFadeIn("up", 0.8, 0.2);
+  const fadeIn3 = useScrollFadeIn("up", 0.8, 0);
+  const fadeIn33 = useScrollFadeIn("up", 0.8, 0.2);
+  const fadeIn4 = useScrollFadeIn("up", 0.8, 0);
+  const fadeIn44 = useScrollFadeIn("up", 0.8, 0.2);
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -290,9 +297,9 @@ const MainPage = () => {
           </ImageWrap>
         </ImgBox>
       </ThridSection>
-      <BtnWrap>
-        <ContactBtn to="/contact">상담하기</ContactBtn>
-      </BtnWrap>
+      <ContactBtnWrap>
+        <ContactBtn to="/contact">Contact</ContactBtn>
+      </ContactBtnWrap>
     </Container>
   );
 };
