@@ -137,6 +137,12 @@ const ImageWrap = styled.div`
   }
 `;
 
+const StyledImg = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+`;
+
 const ThridSection = styled.div`
   width: 80%;
   height: auto;
@@ -180,39 +186,55 @@ const MainPage = () => {
       </HeroSection>
       <SecondSection>
         <ImgBox>
-          <ImageWrap imageurl={body01} />
+          <ImageWrap>
+            <StyledImg src={body01} loading="eager" />
+          </ImageWrap>
         </ImgBox>
         <ImgBox>
-          <ImageWrap imageurl={body02} />
+          <ImageWrap>
+            <StyledImg src={body02} loading="eager" />
+          </ImageWrap>
         </ImgBox>
       </SecondSection>
       <ThridSection>
         {isMobile ? (
           <>
             <ImgBox>
-              <ImageWrap imageurl={body04} />
+              <ImageWrap>
+                <StyledImg src={body04} loading="eager" />
+              </ImageWrap>
             </ImgBox>
             <ImgBox>
-              <ImageWrap imageurl={body03} />
+              <ImageWrap>
+                <StyledImg src={body03} loading="eager" />
+              </ImageWrap>
             </ImgBox>
           </>
         ) : (
           <>
             <ImgBox>
-              <ImageWrap imageurl={body03} />
+              <ImageWrap>
+                <StyledImg src={body03} loading="eager" />
+              </ImageWrap>
             </ImgBox>
             <ImgBox>
-              <ImageWrap imageurl={body04} />
+              <ImageWrap>
+                <StyledImg src={body04} loading="eager" />
+              </ImageWrap>
             </ImgBox>
           </>
         )}
       </ThridSection>
       <ThridSection>
         <ImgBox>
-          <ImageWrap imageurl={body05} />
+          <ImageWrap>
+            <StyledImg src={body05} loading="eager" />
+          </ImageWrap>
         </ImgBox>
         <ImgBox>
-          <ImageWrap imageurl={body06} />
+          <ImageWrap>
+            <StyledImg src={body06} loading="eager" />
+          </ImageWrap>
         </ImgBox>
       </ThridSection>
       <BtnWrap>
