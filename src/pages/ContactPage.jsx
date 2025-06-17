@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import useScrollFadeIn from "../hooks/useScrollFadIn";
 import body01 from "../img/insta.png";
+import { GrMailOption } from "react-icons/gr";
+import { FaInstagram } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
 
 const Container = styled.main`
   width: 100%;
@@ -17,13 +20,14 @@ const Container = styled.main`
 const FirstSection = styled.div`
   width: 100%;
   height: auto;
-  aspect-ratio: 1920 / 750;
+  aspect-ratio: 1920 / 200;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
   @media (max-width: 1200px) {
     aspect-ratio: 1200 / 400;
+    justify-content: center;
   }
   @media (max-width: 768px) {
     aspect-ratio: 400 / 300;
@@ -33,15 +37,14 @@ const FirstSection = styled.div`
 const SecondSection = styled.div`
   width: 100%;
   height: auto;
-  aspect-ratio: 1920 / 750;
+  aspect-ratio: 1920 / 800;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: row;
   @media (max-width: 1200px) {
-    aspect-ratio: 1200 / 1200;
+    aspect-ratio: 400 / 900;
     flex-direction: column;
-    justify-content: flex-start;
   }
 `;
 
@@ -56,32 +59,15 @@ const Title = styled.div`
 const Title2 = styled.div`
   font-size: 20px;
   color: #cfe776;
-  margin-top: 50px;
+  margin-top: 15px;
   @media (max-width: 768px) {
     font-size: 15px;
-    margin-top: 20px;
-  }
-`;
-
-const TextBox = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  @media (max-width: 1200px) {
-    width: 100%;
-    height: 200px;
-    align-items: center;
-  }
-  @media (max-width: 768px) {
-    height: 300px;
+    margin-top: 10px;
   }
 `;
 
 const ImgBox = styled.div`
-  width: 50%;
+  width: 30%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -92,13 +78,28 @@ const ImgBox = styled.div`
     justify-content: center;
   }
   @media (max-width: 768px) {
-    height: 300px;
-    justify-content: flex-start;
+    height: 400px;
+  }
+`;
+
+const TextBox = styled.div`
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    flex-direction: column;
+  }
+  @media (max-width: 768px) {
   }
 `;
 
 const ImageWrap = styled.div`
-  width: 80%;
+  width: 100%;
   height: auto;
   aspect-ratio: 500 / 500;
   display: flex;
@@ -119,22 +120,43 @@ const StyledImg = styled.img`
 `;
 
 const InstaButton = styled.a`
-  width: 400px;
-  height: 50px;
+  width: 300px;
+  height: 450px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-direction: column;
   color: #cfe776;
-  font-size: 24px;
+  border: 1px solid #cfe776;
+  border-radius: 10px;
+  transition: 0.4s ease;
+  margin-bottom: 30px;
   text-decoration: none;
-  padding-left: 20px;
-  border-radius: 20px;
-  transition: 0.3s ease;
+  margin-right: 50px;
   cursor: pointer;
 
   &:hover {
+    width: 450px;
     color: #b076e7;
+    border: 1px solid #b076e7;
   }
+
+  @media (max-width: 768px) {
+    height: 200px;
+    margin-right: 0px;
+  }
+`;
+
+const TextTitle = styled.a`
+  font-size: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+const TextInfo = styled.a`
+  font-size: 24px;
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -143,14 +165,17 @@ const InstaButton = styled.a`
 
 const ContactPage = () => {
   const fadeIn = useScrollFadeIn("up", 1, 0.2);
+  const fadeInText = useScrollFadeIn("up", 1, 0);
   return (
     <Container>
       <FirstSection>
-        <Title>“고민하고 있다면, 지금이 시작할 타이밍입니다.”</Title>
-        <Title2>
+        <Title {...fadeInText}>
+          “고민하고 있다면, 지금이 시작할 타이밍입니다.”
+        </Title>
+        <Title2 {...fadeInText}>
           브랜딩이 막막하다면, 실행부터 함께하는 콘센트9에 편하게 연락 주세요.
         </Title2>
-        <Title2>
+        <Title2 {...fadeInText}>
           이름만 있어도, 아이디어만 있어도, 혹은 아무것도 없어도 괜찮습니다.
         </Title2>
       </FirstSection>
@@ -165,23 +190,32 @@ const ContactPage = () => {
             />
           </ImageWrap>
         </ImgBox>
-        <TextBox>
+        <TextBox {...fadeInText}>
           <InstaButton target="_blank" rel="noopener noreferrer">
-            📩 Maill: concent9.inc@gmail.com
+            <TextTitle>
+              <GrMailOption />
+            </TextTitle>
+            <TextInfo>concent9.inc@gmail.com</TextInfo>
           </InstaButton>
           <InstaButton
             href="https://www.instagram.com/concent_nine"
             target="_blank"
             rel="noopener noreferrer"
           >
-            📷 Instagram: @concent_nine
+            <TextTitle>
+              <FaInstagram />
+            </TextTitle>
+            <TextInfo>@concent_nine</TextInfo>
           </InstaButton>
           <InstaButton
             href="https://www.threads.com/@concent_nine"
             target="_blank"
             rel="noopener noreferrer"
           >
-            💬 thread: @concent_nine
+            <TextTitle>
+              <FaThreads />
+            </TextTitle>
+            <TextInfo>@concent_nine</TextInfo>
           </InstaButton>
         </TextBox>
       </SecondSection>
