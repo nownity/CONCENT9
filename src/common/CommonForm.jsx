@@ -16,7 +16,9 @@ const Content = styled.div`
   flex: 1;
 `;
 
-const ScrollTopButton = styled.button`
+const ScrollTopButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== "visible",
+})`
   position: fixed;
   display: flex;
   align-items: center;

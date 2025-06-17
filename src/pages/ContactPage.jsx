@@ -4,6 +4,7 @@ import body01 from "../img/insta.png";
 import { GrMailOption } from "react-icons/gr";
 import { FaInstagram } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
+import ContactForm from "../components/ContactFrom";
 
 const Container = styled.main`
   width: 100%;
@@ -18,18 +19,21 @@ const Container = styled.main`
 `;
 
 const FirstSection = styled.div`
-  width: 100%;
+  width: 35%;
   height: auto;
   aspect-ratio: 1920 / 200;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  transition: width 0.3s ease;
   @media (max-width: 1200px) {
+    width: 50%;
     aspect-ratio: 1200 / 400;
     justify-content: center;
   }
   @media (max-width: 768px) {
+    width: 80%;
     aspect-ratio: 400 / 300;
   }
 `;
@@ -45,24 +49,6 @@ const SecondSection = styled.div`
   @media (max-width: 1200px) {
     aspect-ratio: 400 / 900;
     flex-direction: column;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 24px;
-  color: #cfe776;
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
-`;
-
-const Title2 = styled.div`
-  font-size: 20px;
-  color: #cfe776;
-  margin-top: 15px;
-  @media (max-width: 768px) {
-    font-size: 15px;
-    margin-top: 10px;
   }
 `;
 
@@ -147,7 +133,7 @@ const InstaButton = styled.a`
   }
 `;
 
-const TextTitle = styled.a`
+const TextTitle = styled.div`
   font-size: 24px;
 
   @media (max-width: 768px) {
@@ -155,7 +141,7 @@ const TextTitle = styled.a`
   }
 `;
 
-const TextInfo = styled.a`
+const TextInfo = styled.div`
   font-size: 24px;
 
   @media (max-width: 768px) {
@@ -169,15 +155,7 @@ const ContactPage = () => {
   return (
     <Container>
       <FirstSection>
-        <Title {...fadeInText}>
-          “고민하고 있다면, 지금이 시작할 타이밍입니다.”
-        </Title>
-        <Title2 {...fadeInText}>
-          브랜딩이 막막하다면, 실행부터 함께하는 콘센트9에 편하게 연락 주세요.
-        </Title2>
-        <Title2 {...fadeInText}>
-          이름만 있어도, 아이디어만 있어도, 혹은 아무것도 없어도 괜찮습니다.
-        </Title2>
+        <ContactForm />
       </FirstSection>
       <SecondSection>
         <ImgBox {...fadeIn}>
