@@ -21,14 +21,15 @@ const FieldWrap = styled.div`
 const Label = styled.label`
   font-size: 18px;
   margin-bottom: 10px;
-  color: "#cfe776";
+  color: #cfe776;
 `;
 
-const Input = styled.input`
+const Input = styled(({ isError, ...rest }) => <input {...rest} />)`
   padding: 10px;
-  border: ${({ isError }) =>
-    isError ? "1px solid #ff8282" : "1px solid #cfe776"};
-  border-radius: 8px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid ${({ isError }) => (isError ? "#ff8282" : "#cfe776")};
   background-color: #353535;
   color: white;
   &:focus {
@@ -115,6 +116,13 @@ const ContactForm = () => {
   const form = useRef();
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState({});
+  const fieldRefs = {
+    company: useRef(),
+    name: useRef(),
+    phone: useRef(),
+    email: useRef(),
+    topic: useRef(),
+  };
   const [formData, setFormData] = useState({
     company: "",
     name: "",
@@ -172,8 +180,21 @@ const ContactForm = () => {
     const newErrors = validate(formData);
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0 || !agree) {
-      if (!agree) alert("개인정보 수집 및 이용에 동의해주세요.");
+    if (!agree) {
+      alert("개인정보 수집 및 이용에 동의해주세요.");
+      return;
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      alert("필수 입력사항을 작성해주세요.");
+      const firstErrorKey = Object.keys(newErrors)[0];
+      if (firstErrorKey && fieldRefs[firstErrorKey]) {
+        fieldRefs[firstErrorKey].current?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        fieldRefs[firstErrorKey].current?.focus();
+      }
       return;
     }
 
@@ -201,14 +222,17 @@ const ContactForm = () => {
         setAgree(false);
       })
       .catch((error) => {
-        alert("전송 중 오류가 발생했습니다: " + error.text);
+        console.error("이메일 전송 오류:", error);
+        const errorMsg =
+          error?.text || error?.message || "알 수 없는 오류입니다.";
+        alert("전송 중 오류가 발생했습니다: " + errorMsg);
       });
   };
 
   return (
     <Form ref={form} onSubmit={sendEmail}>
       <FieldWrap>
-        <Label isError={errors.company}>
+        <Label>
           {!formData.company.trim()
             ? "기업명 / 브랜드명 *"
             : "기업명 / 브랜드명"}
@@ -219,6 +243,7 @@ const ContactForm = () => {
           maxLength={50}
           value={formData.company}
           onChange={handleChange}
+          ref={fieldRefs.company}
           isError={errors.company}
           placeholder="ex) Concent9"
         />
@@ -226,15 +251,14 @@ const ContactForm = () => {
       </FieldWrap>
 
       <FieldWrap>
-        <Label isError={errors.name}>
-          {!formData.name.trim() ? "성함 / 직함 *" : "성함 / 직함"}
-        </Label>
+        <Label>{!formData.name.trim() ? "성함 / 직함 *" : "성함 / 직함"}</Label>
         <Input
           type="text"
           name="name"
           maxLength={50}
           value={formData.name}
           onChange={handleChange}
+          ref={fieldRefs.name}
           isError={errors.name}
           placeholder="ex) 안은진 / 대표"
         />
@@ -242,15 +266,14 @@ const ContactForm = () => {
       </FieldWrap>
 
       <FieldWrap>
-        <Label isError={errors.phone}>
-          {!formData.phone.trim() ? "연락처 *" : "연락처"}
-        </Label>
+        <Label>{!formData.phone.trim() ? "연락처 *" : "연락처"}</Label>
         <Input
           type="text"
           name="phone"
           maxLength={20}
           value={formData.phone}
           onChange={handleChange}
+          ref={fieldRefs.phone}
           isError={errors.phone}
           placeholder="ex) 010-0000-0000"
         />
@@ -258,7 +281,7 @@ const ContactForm = () => {
       </FieldWrap>
 
       <FieldWrap>
-        <Label isError={errors.email}>
+        <Label>
           {!formData.email.trim() ? "이메일 주소 *" : "이메일 주소"}
         </Label>
         <Input
@@ -268,6 +291,7 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           isError={errors.email}
+          ref={fieldRefs.email}
           placeholder="ex) concent9.inc@gmail.com"
         />
         {errors.email && <ErrorMsg>필수 입력 사항입니다</ErrorMsg>}
@@ -298,7 +322,7 @@ const ContactForm = () => {
       </FieldWrap>
 
       <FieldWrap>
-        <Label isError={errors.topic}>
+        <Label>
           {formData.topic.length === 0 ? "문의 주제 *" : "문의 주제"}
         </Label>
         <CheckboxGroup>
@@ -314,6 +338,7 @@ const ContactForm = () => {
               <StyledCheckboxInput
                 name="topic"
                 value={topic}
+                ref={fieldRefs.topic}
                 checked={formData.topic.includes(topic)}
                 onChange={handleChange}
               />

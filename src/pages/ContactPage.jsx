@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import useScrollFadeIn from "../hooks/useScrollFadIn";
+import contact1 from "../img/contact1.png";
 import body01 from "../img/insta.png";
 import { GrMailOption } from "react-icons/gr";
 import { FaInstagram } from "react-icons/fa";
@@ -18,6 +19,25 @@ const Container = styled.main`
   padding-top: 70px;
 `;
 
+const TitleSection = styled.div`
+  width: 30%;
+  height: auto;
+  aspect-ratio: 1920 / 200;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  @media (max-width: 1200px) {
+    width: 70%;
+    aspect-ratio: 1200 / 400;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    aspect-ratio: 400 / 300;
+  }
+`;
+
 const FirstSection = styled.div`
   width: 35%;
   height: auto;
@@ -26,7 +46,6 @@ const FirstSection = styled.div`
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  transition: width 0.3s ease;
   @media (max-width: 1200px) {
     width: 50%;
     aspect-ratio: 1200 / 400;
@@ -47,7 +66,7 @@ const SecondSection = styled.div`
   justify-content: center;
   flex-direction: row;
   @media (max-width: 1200px) {
-    aspect-ratio: 400 / 900;
+    aspect-ratio: 400 / 500;
     flex-direction: column;
   }
 `;
@@ -78,9 +97,8 @@ const TextBox = styled.div`
 
   @media (max-width: 1200px) {
     width: 100%;
+    height: 100%;
     flex-direction: column;
-  }
-  @media (max-width: 768px) {
   }
 `;
 
@@ -127,9 +145,16 @@ const InstaButton = styled.a`
     border: 1px solid #b076e7;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     height: 200px;
     margin-right: 0px;
+  }
+  @media (max-width: 768px) {
+    height: 150px;
+    margin-right: 0px;
+    &:hover {
+      width: 310px;
+    }
   }
 `;
 
@@ -154,6 +179,16 @@ const ContactPage = () => {
   const fadeInText = useScrollFadeIn("up", 1, 0);
   return (
     <Container>
+      <TitleSection>
+        <ImageWrap>
+          <StyledImg
+            src={contact1}
+            alt="concent9 타이틀"
+            loading="eager"
+            decoding="async"
+          />
+        </ImageWrap>
+      </TitleSection>
       <FirstSection>
         <ContactForm />
       </FirstSection>
