@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // 헤더 영역
@@ -47,7 +47,7 @@ const Menu = styled.nav`
 `;
 
 const MenuItem = styled(Link)`
-  color: #cfe776;
+  color: ${({ $active }) => ($active ? "#cccccc" : "#cfe776")};
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
@@ -99,6 +99,7 @@ const Overlay = styled.div`
 `;
 
 const Header = () => {
+  const location = useLocation();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen((prev) => !prev);
@@ -121,11 +122,24 @@ const Header = () => {
         <Burger onClick={toggleSidebar}>☰</Burger>
         <Logo to="/">CONCENT9</Logo>
         <Menu>
-          <MenuItem to="/about">About</MenuItem>
-          <MenuItem to="/services">What We Do</MenuItem>
-          <MenuItem to="/portfolio">Portfolio</MenuItem>
-          <MenuItem to="/pricing">Pricing</MenuItem>
-          <MenuItem to="/contact">Contact</MenuItem>
+          <MenuItem to="/about" $active={location.pathname === "/about"}>
+            About
+          </MenuItem>
+          <MenuItem to="/services" $active={location.pathname === "/services"}>
+            What We Do
+          </MenuItem>
+          <MenuItem
+            to="/portfolio"
+            $active={location.pathname === "/portfolio"}
+          >
+            Portfolio
+          </MenuItem>
+          <MenuItem to="/pricing" $active={location.pathname === "/pricing"}>
+            Pricing
+          </MenuItem>
+          <MenuItem to="/contact" $active={location.pathname === "/contact"}>
+            Contact
+          </MenuItem>
         </Menu>
       </Container>
 

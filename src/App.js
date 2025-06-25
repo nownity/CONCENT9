@@ -8,10 +8,12 @@ import PortfolioPage from "./pages/PortfolioPage";
 import PricingPage from "./pages/PricingPage";
 import ContactPage from "./pages/ContactPage";
 import CommonForm from "./common/CommonForm";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route element={<CommonForm />}>
           <Route path="/" element={<MainPage />} />

@@ -66,6 +66,10 @@ const SecondSection = styled.div`
   justify-content: center;
   flex-direction: row;
   @media (max-width: 1200px) {
+    aspect-ratio: 400 / 300;
+    flex-direction: column;
+  }
+  @media (max-width: 768px) {
     aspect-ratio: 400 / 500;
     flex-direction: column;
   }
@@ -77,13 +81,8 @@ const ImgBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  @media (max-width: 1200px) {
-    width: 100%;
-    height: 500px;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    height: 400px;
+  @media (max-width: 1600px) {
+    display: none;
   }
 `;
 
@@ -95,8 +94,10 @@ const TextBox = styled.div`
   justify-content: center;
   flex-direction: row;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1600px) {
     width: 100%;
+  }
+  @media (max-width: 1200px) {
     height: 100%;
     flex-direction: column;
   }
@@ -113,12 +114,12 @@ const ImageWrap = styled.div`
     width: 60%;
   }
   @media (max-width: 768px) {
-    width: 80%;
+    width: 70%;
   }
 `;
 
 const StyledImg = styled.img`
-  width: 100%;
+  width: 85%;
   height: auto;
   object-fit: contain;
 `;
@@ -139,6 +140,10 @@ const InstaButton = styled.a`
   margin-right: 50px;
   cursor: pointer;
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   &:hover {
     width: 450px;
     color: #b076e7;
@@ -146,10 +151,12 @@ const InstaButton = styled.a`
   }
 
   @media (max-width: 1200px) {
+    width: 400px;
     height: 200px;
     margin-right: 0px;
   }
   @media (max-width: 768px) {
+    width: 300px;
     height: 150px;
     margin-right: 0px;
     &:hover {
@@ -169,6 +176,9 @@ const TextTitle = styled.div`
 const TextInfo = styled.div`
   font-size: 24px;
 
+  @media (max-width: 1600px) {
+    font-size: 20px;
+  }
   @media (max-width: 768px) {
     font-size: 16px;
   }
