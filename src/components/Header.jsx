@@ -134,9 +134,6 @@ const Header = () => {
           >
             Portfolio
           </MenuItem>
-          <MenuItem to="/pricing" $active={location.pathname === "/pricing"}>
-            Pricing
-          </MenuItem>
           <MenuItem to="/contact" $active={location.pathname === "/contact"}>
             Contact
           </MenuItem>
@@ -153,9 +150,6 @@ const Header = () => {
         </MenuItem>
         <MenuItem to="/portfolio" onClick={closeSidebar}>
           Portfolio
-        </MenuItem>
-        <MenuItem to="/pricing" onClick={closeSidebar}>
-          Pricing
         </MenuItem>
         <MenuItem to="/contact" onClick={closeSidebar}>
           Contact

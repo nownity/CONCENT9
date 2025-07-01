@@ -111,15 +111,15 @@ const ImageWrap = styled.div`
   align-items: center;
   justify-content: center;
   @media (max-width: 1200px) {
-    width: 60%;
+    width: 70%;
   }
   @media (max-width: 768px) {
-    width: 70%;
+    width: 80%;
   }
 `;
 
 const StyledImg = styled.img`
-  width: 85%;
+  width: 100%;
   height: auto;
   object-fit: contain;
 `;
@@ -185,6 +185,8 @@ const TextInfo = styled.div`
 `;
 
 const ContactPage = () => {
+  const fadeInTitle = useScrollFadeIn("up", 0.8, 0);
+  const fadeInCon = useScrollFadeIn("up", 0.8, 0.2);
   const fadeIn = useScrollFadeIn("up", 1, 0.2);
   const fadeInText = useScrollFadeIn("up", 1, 0);
   return (
@@ -192,6 +194,7 @@ const ContactPage = () => {
       <TitleSection>
         <ImageWrap>
           <StyledImg
+            {...fadeInTitle}
             src={contact1}
             alt="concent9 타이틀"
             loading="eager"
@@ -199,7 +202,7 @@ const ContactPage = () => {
           />
         </ImageWrap>
       </TitleSection>
-      <FirstSection>
+      <FirstSection {...fadeInCon}>
         <ContactForm />
       </FirstSection>
       <SecondSection>

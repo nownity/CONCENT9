@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import about1 from "../img/about1.png";
 import body01 from "../img/insta.png";
+import useScrollFadeIn from "../hooks/useScrollFadIn";
 
 const Container = styled.main`
   width: 100%;
@@ -36,7 +37,6 @@ const MainImage = styled.img`
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: blur(2px);
   transform: scale(1.01);
   @media (max-width: 768px) {
     filter: blur(1.5px);
@@ -214,6 +214,16 @@ const ItroTextBottom = styled.div`
 `;
 
 const AboutPage = () => {
+  const fadeInTitle = useScrollFadeIn("up", 0.8, 0);
+  const fadeInSubTitle = useScrollFadeIn("up", 0.8, 0.2);
+  const fadeInTextTitle = useScrollFadeIn("up", 0.8, 0);
+  const fadeInTextSub = useScrollFadeIn("up", 0.8, 0.2);
+  const fadeInOne = useScrollFadeIn("up", 0.8, 0);
+  const fadeInOne2 = useScrollFadeIn("up", 0.8, 0.1);
+  const fadeInTwo = useScrollFadeIn("up", 0.8, 0);
+  const fadeInTwo2 = useScrollFadeIn("up", 0.8, 0.1);
+  const fadeInThree = useScrollFadeIn("up", 0.8, 0);
+  const fadeInThree2 = useScrollFadeIn("up", 0.8, 0.1);
   return (
     <Container>
       <MainSection>
@@ -224,8 +234,8 @@ const AboutPage = () => {
           decoding="async"
         />
         <TextSetion>
-          <Title>CONCENT9</Title>
-          <SubText>
+          <Title {...fadeInTitle}>CONCENT9</Title>
+          <SubText {...fadeInSubTitle}>
             We turn ideas into action. From concept to launch, CONCENT9 empowers
             founders to bring their brand vision to life. Whether you're just
             starting or scaling up, we cover the A to Z of execution - branding,
@@ -236,8 +246,10 @@ const AboutPage = () => {
       </MainSection>
       <SecondSetion>
         <LeftSetion>
-          <SecondTitle>About</SecondTitle>
-          <SecondSubText>안녕하세요, CONCENT9 입니다.</SecondSubText>
+          <SecondTitle {...fadeInTextTitle}>About</SecondTitle>
+          <SecondSubText {...fadeInTextSub}>
+            안녕하세요, CONCENT9 입니다.
+          </SecondSubText>
           <ImageWrap>
             <StyledImg
               src={body01}
@@ -248,35 +260,47 @@ const AboutPage = () => {
           </ImageWrap>
         </LeftSetion>
         <RightSetion>
-          <MainText>1. 콘센트9은 무엇을 하는 브랜드인가?</MainText>
-          <ItroText>“아이디어만 있으면, 실행은 우리가 합니다.”</ItroText>
-          <ItroText>
+          <MainText {...fadeInOne}>
+            1. 콘센트9은 무엇을 하는 브랜드인가?
+          </MainText>
+          <ItroText {...fadeInOne2}>
+            “아이디어만 있으면, 실행은 우리가 합니다.”
+          </ItroText>
+          <ItroText {...fadeInOne2}>
             콘센트9은 ‘사업의 A부터 Z까지’ 실무 중심으로 실행하는 브랜드
             에이전시입니다.
           </ItroText>
-          <ItroText>
+          <ItroText {...fadeInOne2}>
             브랜드를 시작하고 싶지만 어디서부터 어떻게 시작해야 할지 막막한 1인
             창업자, 소규모 팀을 위해,
           </ItroText>
-          <ItroTextBottom>
+          <ItroTextBottom {...fadeInOne2}>
             기획 → 디자인 → 제작 → 런칭 → 마케팅 → 시스템 구축까지 전 과정을
             빠르고 유기적으로 실행합니다.
           </ItroTextBottom>
-          <MainText>2. ‘콘센트9’의 의미는 무엇인가?</MainText>
-          <ItroText>
+          <MainText {...fadeInTwo}>2. ‘콘센트9’의 의미는 무엇인가?</MainText>
+          <ItroText {...fadeInTwo2}>
             아이디어가 전류라면, 콘센트9은 그 전류를 흐르게 하는 ‘전원
             스위치’입니다.
           </ItroText>
-          <ItroText>어디에 꽂아도 확실하게 연결되는 실행 파트너.</ItroText>
-          <ItroText>‘9’는 당신을 만나 ‘10’이 되는 완성을 의미합니다.</ItroText>
-          <ItroTextBottom>
+          <ItroText {...fadeInTwo2}>
+            어디에 꽂아도 확실하게 연결되는 실행 파트너.
+          </ItroText>
+          <ItroText {...fadeInTwo2}>
+            ‘9’는 당신을 만나 ‘10’이 되는 완성을 의미합니다.
+          </ItroText>
+          <ItroTextBottom {...fadeInTwo2}>
             실행되지 못한 아이디어가 아닌, 완성되는 브랜드를 만듭니다.
           </ItroTextBottom>
-          <MainText>3. 우리가 믿는 것</MainText>
-          <ItroText>실행은 아이디어보다 가치 있다.</ItroText>
-          <ItroText>브랜드는 ‘예쁘게’보다 ‘팔리게’ 만들어야 한다.</ItroText>
-          <ItroText>창업자는 혼자지만, 브랜드는 함께 만든다.</ItroText>
-          <ItroTextBottom>
+          <MainText {...fadeInThree}>3. 우리가 믿는 것</MainText>
+          <ItroText {...fadeInThree2}>실행은 아이디어보다 가치 있다.</ItroText>
+          <ItroText {...fadeInThree2}>
+            브랜드는 ‘예쁘게’보다 ‘팔리게’ 만들어야 한다.
+          </ItroText>
+          <ItroText {...fadeInThree2}>
+            창업자는 혼자지만, 브랜드는 함께 만든다.
+          </ItroText>
+          <ItroTextBottom {...fadeInThree2}>
             복잡한 건 우리가 할게요. 대표님은 방향만 주세요.
           </ItroTextBottom>
         </RightSetion>
